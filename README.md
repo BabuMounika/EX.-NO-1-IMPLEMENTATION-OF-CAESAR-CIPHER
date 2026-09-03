@@ -1,23 +1,70 @@
-# EX. NO: 1(A) : IMPLEMENTATION OF CAESAR CIPHER
+# EX. NO: 1(A) : IMPLEMENTATION OF CAESAR CIPHER 
+# Name: Motta Katta Mounika 
+# Register num:212224040202 
+# AIM: 
+To implement the simple substitution technique named Caesar cipher using C 
+language. 
+# ALOGORITHM: 
+STEP-1: Read the plain text from the user. 
 
-## AIM:
-To implement the simple substitution technique named Caesar cipher using C language.
+STEP-2: Read the key value from the user. 
 
-## ALOGORITHM:
+STEP-3: If the key is positive then encrypt the text by adding the key with each character 
+in the plain text. 
 
-STEP-1: Read the plain text from the user.
+STEP-4: Else subtract the key from the plain text. 
 
-STEP-2: Read the key value from the user.
+STEP-5: Display the cipher text obtained above. 
+# PROGRAM: 
+``` 
+#include <stdio.h> 
+#include <string.h> 
+#include <ctype.h> 
+void main() 
+{ 
+char plain[10], cipher[10]; 
+int key, i, length; 
+printf("Enter the plain text: "); 
+    scanf("%s", plain); 
+ 
+    printf("Enter the key value: "); 
+    scanf("%d", &key); 
+ 
+    printf("\nPLAIN TEXT: %s", plain); 
+ 
+    printf("\nENCRYPTED TEXT: "); 
+ 
+    for(i = 0, length = strlen(plain); i < length; i++) 
+    { 
+        cipher[i] = plain[i] + key; 
+ 
+        if(isupper(plain[i]) && (cipher[i] > 'Z')) 
+            cipher[i] = cipher[i] - 26; 
+ 
+        if(islower(plain[i]) && (cipher[i] > 'z')) 
+            cipher[i] = cipher[i] - 26; 
+ 
+        printf("%c", cipher[i]); 
+    } 
+ 
+    printf("\nAFTER DECRYPTION: "); 
+ 
+    for(i = 0; i < length; i++) 
+    { 
+        plain[i] = cipher[i] - key; 
+ 
+if(isupper(cipher[i]) && (plain[i] < 'A')) 
+plain[i] = plain[i] + 26; 
+if(islower(cipher[i]) && (plain[i] < 'a')) 
+plain[i] = plain[i] + 26; 
+printf("%c", plain[i]); 
+} 
+} 
+``` 
+# OUTPUT: 
 
-STEP-3: If the key is positive then encrypt the text by adding the key with each character in the plain text.
+<img width="1466" height="817" alt="image" src="https://github.com/user-attachments/assets/068d9ee2-6be4-43f1-b498-1374c34eda2c" />
 
-STEP-4: Else subtract the key from the plain text.
 
-STEP-5: Display the cipher text obtained above.
-
-## PROGRAM:
-
-## OUTPUT:
-
-## RESULT :
- Thus the implementation of ceasar cipher had been executed successfully.
+# RESULT : 
+Thus the implementation of Caesar cipher had been executed successfully.
